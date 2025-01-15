@@ -15,5 +15,6 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.recipes.cache-colorscheme" },
   -- import/override with your plugins folder
 }
