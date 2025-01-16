@@ -16,5 +16,6 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
+  { import = "astrocommunity.programming-language-support.csv-vim" },
   -- import/override with your plugins folder
 }
