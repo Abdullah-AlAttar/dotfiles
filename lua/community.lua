@@ -15,6 +15,7 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.programming-language-support.csv-vim" },
   -- import/override with your plugins folder
