@@ -1,0 +1,82 @@
+environment:
+  - "YV_DIR=/home/ab_dullah/workspace/yunex/yv"
+
+processes:
+  common-services-up:
+    command: task docker:up 
+    working_dir: ${YV_DIR}/varia-am/varia-am-backend
+    disabled: true
+  varia-dm-backend:
+    command: task run:server
+    working_dir: ${YV_DIR}/varia-dm/varia-dm-backend
+    availability:
+      restart: "always"
+  varia-am-backend:
+    command: task run:server
+    working_dir: ${YV_DIR}/varia-am/varia-am-backend
+    availability:
+      restart: "always"
+  varia-sch-backend:
+    command: task run:server
+    working_dir: ${YV_DIR}/varia-sch/varia-sch-backend
+    availability:
+      restart: "always"
+
+  varia-am-data-propagator:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-am/varia-am-data-propagator
+    disabled: true
+
+
+  varia-am-devices-consumer:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-am/varia-am-devices-consumer
+    availability:
+      restart: "always"
+
+  varia-am-raw-alarms-consumer:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-am/varia-am-raw-alarms-consumer
+    availability:
+      restart: "always"
+
+  varia-dm-command-request-consumer:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-dm/varia-dm-command-request-consumer
+    availability:
+      restart: "always"
+
+  varia-dm-alarms-consumer:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-dm/varia-dm-alarms-consumer
+    availability:
+      restart: "always"
+
+  varia-dm-raw-values-consumer:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-dm/varia-dm-raw-values-consumer
+    availability:
+      restart: "always"
+
+  varia-dm-data-propagator:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-dm/varia-dm-data-propagator
+    disabled: true
+
+  varia-sch-devices-consumer:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-sch/varia-sch-devices-consumer
+    availability:
+      restart: "always"
+
+  varia-sch-alarms-consumer:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-sch/varia-sch-alarms-consumer
+    availability:
+      restart: "always"
+
+  varia-sch-live-values-consumer:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-sch/varia-sch-live-values-consumer
+    availability:
+      restart: "always"
