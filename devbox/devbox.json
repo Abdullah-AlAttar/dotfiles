@@ -26,12 +26,13 @@
     "velero@latest",
     // "ocrmypdf@latest",
     // "gitlab-runner@latest",
-    "stern@latest"
+    "stern@latest",
+    "yazi@latest",
   ],
   "shell": {
     "init_hook": [],
     "scripts": {
-      "test": ["echo \"Error: no test specified\" && exit 1"]
-    }
-  }
+      "test": ["echo \"Error: no test specified\" && exit 1"],
+    },
+  },
 }
