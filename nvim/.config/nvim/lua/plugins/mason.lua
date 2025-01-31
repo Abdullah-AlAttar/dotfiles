@@ -13,6 +13,7 @@ return {
         "lua_ls",
         "gopls",
         "dagger",
+        "jsonnet_ls",
         -- add more arguments for adding more language servers
       },
     },
