@@ -3,7 +3,7 @@ environment:
 
 processes:
   common-services-up:
-    command: task docker:up 
+    command: task docker:up
     working_dir: ${YV_DIR}/varia-am/varia-am-backend
     disabled: true
   varia-dm-backend:
@@ -25,8 +25,9 @@ processes:
   varia-am-data-propagator:
     command: go run main.go
     working_dir: ${YV_DIR}/varia-am/varia-am-data-propagator
-    disabled: true
-
+    # disabled: true
+    availability:
+      restart: "always"
 
   varia-am-devices-consumer:
     command: go run main.go
@@ -61,7 +62,9 @@ processes:
   varia-dm-data-propagator:
     command: go run main.go
     working_dir: ${YV_DIR}/varia-dm/varia-dm-data-propagator
-    disabled: true
+    # disabled: true
+    availability:
+      restart: "always"
 
   varia-sch-devices-consumer:
     command: go run main.go
@@ -78,5 +81,10 @@ processes:
   varia-sch-live-values-consumer:
     command: go run main.go
     working_dir: ${YV_DIR}/varia-sch/varia-sch-live-values-consumer
+    availability:
+      restart: "always"
+  varia-cfg-backend:
+    command: go run main.go
+    working_dir: ${YV_DIR}/varia-cfg/varia-cfg-backend
     availability:
       restart: "always"

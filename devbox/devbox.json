@@ -4,7 +4,7 @@
     "go@latest",
     "gum@latest",
     "jq@latest",
-    "k9s@latest",
+    //   "k9s@latest",
     "kind@latest",
     "kluctl@latest",
     // "ko@latest",
@@ -28,11 +28,13 @@
     // "gitlab-runner@latest",
     "stern@latest",
     "yazi@latest",
+    "xh@latest",
+    "ffmpeg@latest"
   ],
   "shell": {
     "init_hook": [],
     "scripts": {
-      "test": ["echo \"Error: no test specified\" && exit 1"],
-    },
-  },
+      "test": ["echo \"Error: no test specified\" && exit 1"]
+    }
+  }
 }

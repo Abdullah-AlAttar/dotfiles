@@ -26,3 +26,5 @@ end
 
 nvm use latest >/dev/null
 # starship init fish | source
+
+# devbox shell --config $HOME/

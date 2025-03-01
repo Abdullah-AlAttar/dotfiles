@@ -5,324 +5,73 @@ plugins:
     confirm: false
     description: "Logs (jq)"
     scopes:
-      - pod
+    - pod
     command: sh
     background: false
     args:
-      - -c
-      - "kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
+    - -c
+    - "kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
   jqlogsd:
     shortCut: Ctrl-J
     confirm: false
     description: "Logs (jq)"
     scopes:
-      - deployment
+    - deployment
     command: sh
     background: false
     args:
-      - -c
-      - "kubectl logs -f deployment/$NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
+    - -c
+    - "kubectl logs -f deployment/$NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
   jqlogss:
     shortCut: Ctrl-J
     confirm: false
     description: "Logs (jq)"
     scopes:
-      - service
+    - service
     command: sh
     background: false
     args:
-      - -c
-      - "kubectl logs -f service/$NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
-  # {
-  # "bytes_in": 879,
-  # "bytes_out": 879,
-  # "component": "api",
-  # "latency": "1.724301ms",
-  # "level": "info",
-  # "message": "Handled request",
-  # "method": "PUT",
-  # "path": "/api/v1/devices",
-  # "proto": "HTTP/1.1",
-  # "query": "",
-  # "remote_addr": "172.30.11.139:57942",
-  # "request_id": "",
-  # "status": "OK",
-  # "status_code": 200,
-  # "time": "2025-01-17T17:37:48Z",
-  # "user_agent": "OpenAPI-Generator/1.0.0/go"
-  # }
+    - -c
+    - "kubectl logs -f service/$NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
+
   jqcontainer:
     shortCut: Ctrl-J
     description: "Logs (jq)"
     scopes:
-      - containers
+    - containers
     command: sh
     background: false
     args:
-      - -c
-      - "kubectl logs -f $POD -c $NAME -n $NAMESPACE --context $CONTEXT |jq -cSR '. as $line | try (fromjson) catch $line'"
-
-      # stern  varia-am-backend-65c4bd96fc-86djg -c varia-am-backend -o json | jq -c '.message | fromjson'
-  # sterncontainer:
-  #   shortCut: Ctrl-G
-  #   description: "Logs (stern)"
-  #   scopes:
-  #     - containers
-  #   command: sh
-  #   background: false
-  #   args:
-  #     - -c
-  #     - "stern $POD -c $NAME -n $NAMESPACE --context $CONTEXT --kubeconfig $KUBECONFIG | jq -c '.message | fromjson'"
+    - -c
+    - "kubectl logs -f $POD -c $NAME -n $NAMESPACE --context $CONTEXT |jq -cSR '. as $line | try (fromjson) catch $line'"
+    # stern  varia-am-backend-65c4bd96fc-86djg -c varia-am-backend -o json | jq -c '.message | fromjson'
+    # sterncontainer:
+    #   shortCut: Ctrl-G
+    #   description: "Logs (stern)"
+    #   scopes:
+    #     - containers
+    #   command: sh
+    #   background: false
+    #   args:
+    #     - -c
+    #     - "stern $POD -c $NAME -n $NAMESPACE --context $CONTEXT --kubeconfig $KUBECONFIG | jq -c '.message | fromjson'"
   logs-nvim:
     shortCut: Ctrl-N
     description: "logs|nvim"
     scopes:
-      - po
+    - po
     command: bash
     background: false
     args:
-      - -c
-      - '"$@" | nvim -'
-      - dummy-arg
-      - kubectl
-      - logs
-      - $NAME
-      - -n
-      - $NAMESPACE
-      - --context
-      - $CONTEXT
-      - --kubeconfig
-      - $KUBECONFIG
-  #   description: "logs|less"
-  #   scopes:
-  #     - containers
-  #   command: bash
-  #   background: false
-  #   args:
-  #     - -c
-  #     - '"$@" | less'
-  #     - dummy-arg
-  #     - kubectl
-  #     - logs
-  #     - -c
-  #     - $NAME
-  #     - $POD
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
-
-  # Defines a plugin to provide a `ctrl-l` shortcut to tail the logs while in pod view.
-  # jqlogs:
-  #   shortCut: Ctrl-J
-  #   confirm: false
-  #   description: "Logs (jq)"
-  #   scopes:
-  #     - pod
-  #   command: sh
-  #   background: false
-  #   args:
-  #     - -c
-  #     - "kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
-
-  # jqlogsd:
-  #   shortCut: Ctrl-J
-  #   confirm: false
-  #   description: "Logs (jq)"
-  #   scopes:
-  #     - deployment
-  #   command: sh
-  #   background: false
-  #   args:
-  #     - -c
-  #     - "kubectl logs -f deployment/$NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
-  # jqlogss:
-  #   shortCut: Ctrl-J
-  #   confirm: false
-  #   description: "Logs (jq)"
-  #   scopes:
-  #     - service
-  #   command: sh
-  #   background: false
-  #   args:
-  #     - -c
-  #     - "kubectl logs -f service/$NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
-  # jqcontainer:
-  #   shortCut: Ctrl-J
-  #   confirm: false
-  #   description: "Logs (jq)"
-  #   scopes:
-  #     - containers
-  #   command: sh
-  #   background: false
-  #   args:
-  #     - -c
-  #     - "kubectl logs -f $POD -c $NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
-  # pinologs:
-  #   shortCut: Ctrl-L
-  #   description: "attach (pretty)"
-  #   scopes:
-  #     - po
-  #   command: bash
-  #   args:
-  #     - "-i"
-  #     - "-c"
-  #     - "kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT | npx pino-pretty"
-  # logs-follow:
-  #   shortCut: Shift-G
-  #   description: logs -f
-  #   scopes:
-  #     - po
-  #   command: kubectl
-  #   background: false
-  #   args:
-  #     - logs
-  #     - -f
-  #     - $NAME
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
-  # logs-stern-follow: # Note: only shows the currently selected pod unless a filter is set with /
-  #   shortCut: Shift-Y
-  #   confirm: false
-  #   description: "logs|stern"
-  #   scopes:
-  #     - pods
-  #   command: stern
-  #   background: false
-  #   args:
-  #     - "$FILTER"
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
-  # logs-stern-follow-all: # Follows all the logs from all the pods in this namespace
-  #   shortCut: Ctrl-Y
-  #   confirm: false
-  #   description: "logs|stern all"
-  #   scopes:
-  #     - pods
-  #   command: stern
-  #   background: false
-  #   args:
-  #     - ".*"
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
-  # logs-less: # opens the logs in less to be searchable (but does not follow)
-  #   shortCut: Shift-L
-  #   description: "logs|less"
-  #   scopes:
-  #     - po
-  #   command: bash
-  #   background: false
-  #   args:
-  #     - -c
-  #     - '"$@" | less'
-  #     - dummy-arg
-  #     - kubectl
-  #     - logs
-  #     - $NAME
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
-  # logs-less-stern: # opens the stern logs in less to be searchable (but does not follow). A filter must be active with / to see multiple pods (otherwise only the selected pod is shown)
-  #   shortCut: Ctrl-L
-  #   description: "logs|stern|less"
-  #   scopes:
-  #     - po
-  #   command: bash
-  #   background: false
-  #   args:
-  #     - -c
-  #     - '"$@" | less -R'
-  #     - dummy-arg
-  #     - stern
-  #     - --no-follow
-  #     - --color
-  #     - always
-  #     - "$FILTER"
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
-  # logs-less-stern-all: # opens the stern logs from all the pods in this namespace in less (but does not follow)
-  #   shortCut: Ctrl-T
-  #   description: "logs|stern all|less"
-  #   scopes:
-  #     - po
-  #   command: bash
-  #   background: false
-  #   args:
-  #     - -c
-  #     - '"$@" | less -R'
-  #     - dummy-arg
-  #     - stern
-  #     - --no-follow
-  #     - --color
-  #     - always
-  #     - ".*"
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
-  # logs-jq-less: # parses the logs through jq for readability before sending them to less (does not follow)
-  #   shortCut: Ctrl-J
-  #   confirm: false
-  #   description: "logs|jq|less"
-  #   scopes:
-  #     - po
-  #   command: bash
-  #   background: false
-  #   args:
-  #     - -c
-  #     - '"$@" | jq --color-output | less -R'
-  #     - dummy-arg
-  #     - kubectl
-  #     - logs
-  #     - $NAME
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
-  # logs-less-container: # opens the logs from specific containers in less (does not follow)
-  #   shortCut: Ctrl-W
-  #   description: "logs|less"
-  #   scopes:
-  #     - containers
-  #   command: bash
-  #   background: false
-  #   args:
-  #     - -c
-  #     - '"$@" | less'
-  #     - dummy-arg
-  #     - kubectl
-  #     - logs
-  #     - -c
-  #     - $NAME
-  #     - $POD
-  #     - -n
-  #     - $NAMESPACE
-  #     - --context
-  #     - $CONTEXT
-  #     - --kubeconfig
-  #     - $KUBECONFIG
+    - -c
+    - '"$@" | nvim -'
+    - dummy-arg
+    - kubectl
+    - logs
+    - $NAME
+    - -n
+    - $NAMESPACE
+    - --context
+    - $CONTEXT
+    - --kubeconfig
+    - $KUBECONFIG
