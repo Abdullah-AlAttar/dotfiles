@@ -13,6 +13,7 @@ return {
           -- toggle comment
           -- ["<C-/"] = { 'gcc', desc = "Toggle comment" },
           -- ["<C-/"] = { 'gc', desc = "Toggle comment" },
+
         },
         t = {
           -- setting a mapping to false will disable it
@@ -20,6 +21,7 @@ return {
           ["<C-space>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" }, -- new key binding to exit terminal mode
           -- toggle terminal
           ["<C-t>"] = { '<Cmd>execute v:count . "ToggleTerm"<CR>', desc = "Toggle terminal" },
+
         },
         i = {
           ["<C-t>"] = { '<Cmd>execute v:count . "ToggleTerm"<CR>', desc = "Toggle terminal" },

@@ -8,6 +8,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
+  -- import/override with your plugins folder
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
@@ -18,5 +19,4 @@ return {
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.programming-language-support.csv-vim" },
-  -- import/override with your plugins folder
 }

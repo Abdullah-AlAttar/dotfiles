@@ -4,6 +4,7 @@ SETUVAR --export EDITOR:nvim
 SETUVAR --export LOKI_ADDR:https\x3a//grafana\x2eapp\x2edev\x2eyunex\x2edev
 SETUVAR --export LOKI_PASSWORD:da\x21forti\x40DA3
 SETUVAR --export LOKI_USERNAME:abdullah\x2ealattar
+SETUVAR --export VCPKG_ROOT:/home/ab_dullah/external/vcpkg/
 SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish

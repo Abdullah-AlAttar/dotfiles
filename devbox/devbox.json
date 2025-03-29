@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.5/.schema/devbox.schema.json",
   "packages": [
-    "go@latest",
+    "go@1.23.6",
     "gum@latest",
     "jq@latest",
     //   "k9s@latest",
@@ -29,12 +29,13 @@
     "stern@latest",
     "yazi@latest",
     "xh@latest",
-    "ffmpeg@latest"
+    "ffmpeg@latest",
+    "lnav@latest",
   ],
   "shell": {
     "init_hook": [],
     "scripts": {
-      "test": ["echo \"Error: no test specified\" && exit 1"]
-    }
-  }
+      "test": ["echo \"Error: no test specified\" && exit 1"],
+    },
+  },
 }
